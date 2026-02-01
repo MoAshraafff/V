@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day ❤️</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --rose: #ff4d6d;
+            --deep-rose: #c9184a;
+            --blush: #ffccd5;
+            --cream: #fff0f3;
+            --gold: #d4af37;
+            --text: #2d2d2d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #ffe5ec 50%, var(--blush) 100%);
+            color: var(--text);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Floating Hearts Background */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: float-up 8s ease-in-out infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInDown 1.2s ease forwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--deep-rose);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: var(--rose);
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        /* Love Letter Card */
+        .love-letter {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(255, 77, 109, 0.2);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease 0.3s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .love-letter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--rose), var(--gold), var(--rose));
+        }
+
+        .love-letter h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--deep-rose);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .love-letter p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: var(--text);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--rose);
+            text-align: right;
+            margin-top: 30px;
+        }
+
+        /* Reasons Grid */
+        .reasons-section {
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease 0.6s forwards;
+        }
+
+        .reasons-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--deep-rose);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .reason-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--rose);
+            box-shadow: 0 15px 40px rgba(255, 77, 109, 0.3);
+        }
+
+        .reason-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .reason-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--deep-rose);
+            margin-bottom: 10px;
+        }
+
+        .reason-card p {
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Interactive Button */
+        .button-container {
+            text-align: center;
+            margin: 50px 0;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease 0.9s forwards;
+        }
+
+        .love-button {
+            background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .love-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .love-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 77, 109, 0.6);
+        }
+
+        .love-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hidden Message */
+        .hidden-message {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+            box-shadow: 0 20px 60px rgba(255, 77, 109, 0.2);
+            animation: revealMessage 0.6s ease forwards;
+        }
+
+        @keyframes revealMessage {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hidden-message h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--deep-rose);
+            margin-bottom: 20px;
+        }
+
+        .hidden-message p {
+            font-size: 1.4rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* Gallery */
+        .gallery {
+            margin-top: 50px;
+            display: none;
+            /* Initially hidden */
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+
+        .gallery h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--deep-rose);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .memory-grid {
+            column-count: 3;
+            column-gap: 20px;
+        }
+
+        .memory-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            break-inside: avoid;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .memory-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 77, 109, 0.3);
+        }
+
+        .memory-emoji {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .memory-text {
+            font-size: 1.2rem;
+            color: var(--text);
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .memory-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .memory-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .memory-grid {
+                column-count: 1;
+            }
+        }
+
+        /* Question Screen */
+        .question-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--cream) 0%, #ffe5ec 50%, var(--blush) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .question-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .question-box {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 50px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(255, 77, 109, 0.3);
+            max-width: 600px;
+            animation: popIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .question-box h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--deep-rose);
+            margin-bottom: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .question-emoji {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .answer-button {
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .yes-button {
+            background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.4);
+        }
+
+        .yes-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 77, 109, 0.6);
+        }
+
+        .no-button {
+            background: #f0f0f0;
+            color: #666;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .no-button:hover {
+            background: #e0e0e0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 1.2rem;
+            color: var(--deep-rose);
+            opacity: 0;
+            animation: fadeInUp 1.2s ease 1.5s forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .love-letter {
+                padding: 30px 20px;
+            }
+
+            .love-letter h2 {
+                font-size: 2rem;
+            }
+
+            .love-letter p {
+                font-size: 1.1rem;
+            }
+
+            .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Question Screen -->
+    <div class="question-screen" id="questionScreen">
+        <div class="question-box">
+            <div class="question-emoji">💝</div>
+            <h1>Will You Be<br>My Valentine?</h1>
+            <div class="buttons-container">
+                <button class="answer-button yes-button" onclick="answerYes()">Yes! ❤️</button>
+                <button class="answer-button no-button" id="noButton" onclick="moveButton()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <div class="container">
+        <header>
+            <h1>Happy Valentine's Day</h1>
+            <p class="subtitle">To the Love of My Life ❤️</p>
+        </header>
+
+        <div class="love-letter">
+            <h2>FOR MY SOUU</h2>
+
+            <p>Click on button ya ba2ara</p>
+        </div>
+
+
+        <div class="button-container">
+            <button class="love-button" onclick="revealMessage()">
+                <span>Click for a Special Message 💌</span>
+            </button>
+        </div>
+
+        <div class="hidden-message" id="hiddenMessage">
+            <p>HAPPY VALENTIEN'S DAY YA RUUHHYYYYY YDK HOW MUCH I LOVE YOUU BGDD ENTY BA2ETY KOLL HAGA BELNESBALI W
+                BASTAANNA AKLMK ASHAN A RELEASE KOLL ELDOGHOTAT ELLY ALYAA BGDD W ANA HAFDAL SHAYEF ENK AHLA HAGA
+                HASALET FE HAYATI W OMRY MA HALA2Y AHLA WLA AGML WLA AHN MNK ABDN YA SOU W AYZK TEFDALI ARFA ENNY
+                WALLAHI BABZEL MAGHOOD ANA OMRY MA AMLTO ASHAN BS AWSALLEK W ABAA MAAKI W NEBAA LBAAD KHALASS ANA BS
+                MEHTAG SHWYT WAAT W WALLAHI HASBTLEK KOLL DA W HATSHOFI KOLL HAGA HELWA W WALLAHI WALLAHI YBNTI ANA
+                HASHELEK FOU2 RASY FE ELFATRA DE W HATTA BAAD MA NTGWZ ( W EHNA HNTGWZ ALAFEKRAAAAAAA) SOU ANA EINY BA2T
+                BTLM3 AWL LAMMA BASHOFKK LWAHDAHA W ELLY HYA MOSTAAHEEELL TELMAA BNAFS ELTARE2A L AY WAHDA TANYA W KOLL
+                LAMMAA BASHOFK HOBBY LEKI BYZEID AD3AF W BABAA DYMN MERTAH W MABSOT WNA MAAKI W KOLL MARRA WNA MAAKI BGD
+                BAT2AKED ENNY EKHTART SAH W MAFESH AY BNT TANYA HATE2DAR TEMLA EINY GHERK W ELDNYA DE MALHASH AYTAAM
+                MNGHERK W HAATEFDALI ENTY MY FIRST AND LAST CHOICE W ELMOHEM ANDI ENNA NEFDAL MAA BAAD W MSH FARE2LY AY
+                HGAA TANYA WALLAHI W AYZK TEFDALI ARFA ENNY HAFDAL DYMN SANADEK W DAHREK W OMRY MA HASEBEK ABDDNNN W ANA
+                MAAKI FE KOLL ZROFK SAWA2 ENTY GHLETTY AW MAGHLTESH ANA MAAKI FE KOLL HAGA W MSHAYZK TEKHAFI WNA MAAKI
+                ABDDNNN W YARB AFDAL ANA YOUR SAFE ZONE ALATOULLL W MATEZALESH MENNY LW FE MARRA DAY2TEK ASHAN ZAALEK
+                BYEFRE2 MAAYA MOOOOOTT W MAYHONSH ALYA ABDN ENK TEB2Y METDAYAA MENNY FE HAGAA W ASHOFK METDAYAA W I
+                LOVEE YYOOOUUU BAHEBKKKK FAAAAASHSHSHSHKHKHKHKHK YA SAHBTY W OKHTY W HABEBTY W MY BESTFRIEND W KOLL HAGA
+                FE HAYATI YA NOUREINY W RBNA YKHALLEKI LYA YARB W MAYHRMNESH MNKK ABDDNNN W NEFDAL ALATOUL MAA BAAD W
+                NEKBAR SAWA W YARB RBNA YWAFA2NY BSOR3A ASHAN A GYY W AT2DMLKK YA SSOOOUUUUU
+                bamot fe dein omk</p>
+        </div>
+
+        <!-- Gallery Toggle Button -->
+        <div class="button-container" id="galleryButtonContainer">
+            <button class="love-button" onclick="revealGallery()">
+                <span>See Our Beautiful Moments 📸</span>
+            </button>
+        </div>
+
+        <div class="gallery">
+            <h2>Our Beautiful Moments</h2>
+            <div class="memory-grid">
+                <div class="memory-box">
+                    <img src="images/moment1.jpg" alt="Beautiful Moment 1">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment2.jpg" alt="Beautiful Moment 2">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment3.jpg" alt="Beautiful Moment 3">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment4.jpg" alt="Beautiful Moment 4">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment5.jpg" alt="Beautiful Moment 5">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment6.jpg" alt="Beautiful Moment 6">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment7.jpg" alt="Beautiful Moment 7">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment8.jpg" alt="Beautiful Moment 8">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment9.jpg" alt="Beautiful Moment 9">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment10.jpg" alt="Beautiful Moment 10">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment11.jpg" alt="Beautiful Moment 11">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment12.jpg" alt="Beautiful Moment 12">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment13.jpg" alt="Beautiful Moment 13">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment14.jpg" alt="Beautiful Moment 14">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment15.jpg" alt="Beautiful Moment 15">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment16.jpg" alt="Beautiful Moment 16">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment17.jpg" alt="Beautiful Moment 17">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment18.jpg" alt="Beautiful Moment 18">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment19.jpg" alt="Beautiful Moment 19">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment20.jpg" alt="Beautiful Moment 20">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment21.jpg" alt="Beautiful Moment 21">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment22.jpg" alt="Beautiful Moment 22">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment23.jpg" alt="Beautiful Moment 23">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment24.jpg" alt="Beautiful Moment 24">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment25.jpg" alt="Beautiful Moment 25">
+                </div>
+                <div class="memory-box">
+                    <img src="images/moment26.jpg" alt="Beautiful Moment 26">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Happy Valentine's Day, My Love! 💝</p>
+        </footer>
+    </div>
+
+    <script>
+        // Handle Yes answer
+        function answerYes() {
+            const questionScreen = document.getElementById('questionScreen');
+            questionScreen.classList.add('hidden');
+
+            // Create massive heart burst
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    createHeartBurst();
+                }, i * 30);
+            }
+
+            // Start the floating hearts animation
+            setTimeout(() => {
+                startHeartAnimation();
+            }, 800);
+        }
+
+        // Make "No" button run away (playful interaction)
+        function moveButton() {
+            const button = document.getElementById('noButton');
+            const maxX = window.innerWidth - button.offsetWidth - 100;
+            const maxY = window.innerHeight - button.offsetHeight - 100;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            button.style.position = 'fixed';
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+            button.style.transition = 'all 0.3s ease';
+
+            // Make the button smaller each time
+            const currentScale = parseFloat(button.style.transform?.replace('scale(', '').replace(')', '') || 1);
+            if (currentScale > 0.3) {
+                button.style.transform = `scale(${currentScale * 0.8})`;
+            }
+        }
+
+        // Start heart animation after answering yes
+        function startHeartAnimation() {
+            // Create hearts periodically
+            setInterval(createHeart, 800);
+
+            // Create initial hearts
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createHeart, i * 300);
+            }
+        }
+
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+
+            document.getElementById('heartsContainer').appendChild(heart);
+
+            // Remove heart after animation completes
+            setTimeout(() => {
+                heart.remove();
+            }, 13000);
+        }
+
+        // Reveal hidden message
+        function revealMessage() {
+            const message = document.getElementById('hiddenMessage');
+            message.style.display = 'block';
+
+            // Create heart burst effect
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createHeartBurst();
+                }, i * 50);
+            }
+        }
+
+        function createHeartBurst() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💖';
+            heart.style.position = 'fixed';
+            heart.style.fontSize = '30px';
+            heart.style.left = '50%';
+            heart.style.top = '50%';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '1000';
+
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = Math.random() * 200 + 100;
+            const vx = Math.cos(angle) * velocity;
+            const vy = Math.sin(angle) * velocity;
+
+            document.body.appendChild(heart);
+
+            let x = 0, y = 0;
+            let opacity = 1;
+
+            const animate = () => {
+                x += vx * 0.016;
+                y += vy * 0.016;
+                opacity -= 0.02;
+
+                heart.style.transform = `translate(${x}px, ${y}px)`;
+                heart.style.opacity = opacity;
+
+                if (opacity > 0) {
+                    requestAnimationFrame(animate);
+                } else {
+                    heart.remove();
+                }
+            };
+
+            animate();
+        }
+
+        // Add sparkle effect on reason cards
+        const reasonCards = document.querySelectorAll('.reason-card');
+        reasonCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.background = 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,204,213,0.3))';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.background = 'rgba(255, 255, 255, 0.9)';
+            });
+        });
+
+        // Reveal Gallery
+        function revealGallery() {
+            const gallery = document.querySelector('.gallery');
+            const btnContainer = document.getElementById('galleryButtonContainer');
+
+            gallery.style.display = 'block';
+            btnContainer.style.display = 'none'; // Optional: hide the button after clicking
+
+            // Scroll to gallery
+            gallery.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>
